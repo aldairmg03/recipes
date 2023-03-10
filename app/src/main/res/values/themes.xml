@@ -20,4 +20,8 @@
         <item name="postSplashScreenTheme">@style/Theme.Recipes</item>
     </style>
 
+    <style name="CollapsedExpandedTitleText" parent="Theme.Recipes">
+        <item name="android:textColor">@android:color/transparent</item>
+    </style>
+
 </resources>
