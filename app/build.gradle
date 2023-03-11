@@ -55,6 +55,7 @@ dependencies {
     implementation androidx.constraintlayout
     implementation androidx.lifecycleExt
     implementation google.material
+    implementation androidx.swipeRefreshLayout
 
     //Activity extension, referring with  "by viewModels"
     implementation androidx.activityKtx

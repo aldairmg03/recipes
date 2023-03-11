@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.amg.recipes.data.remote.Result
 import com.amg.recipes.domain.usecases.GetRecipesUseCases
+import com.amg.recipes.presentation.master.dto.RecipeDTO
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -21,8 +22,11 @@ class MasterViewModel @Inject constructor(
     private val _showLoadingMLD = MutableLiveData<Boolean>()
     val onShowLoading: LiveData<Boolean> get() = _showLoadingMLD
 
-    fun getRecipes() {
+    private val _recipesCatalogMLD = MutableLiveData<List<RecipeDTO>>()
+    val onRecipesCatalog: LiveData<List<RecipeDTO>> get() = _recipesCatalogMLD
 
+    fun getRecipes() {
+        showLoading(true)
         viewModelScope.launch {
             when (val result = getRecipesUseCases.invoke()) {
                 is Result.Error -> {
@@ -30,7 +34,19 @@ class MasterViewModel @Inject constructor(
                     showLoading(false)
                 }
                 is Result.Success -> {
-
+                    val recipes = result.data.map { recipe ->
+                        RecipeDTO(
+                            recipe.id,
+                            recipe.name,
+                            recipe.tagLine,
+                            recipe.description,
+                            recipe.firstBrewed,
+                            recipe.imageUrl,
+                            recipe.foodPairing
+                        )
+                    }
+                    _recipesCatalogMLD.value = recipes
+                    showLoading(false)
                 }
             }
         }

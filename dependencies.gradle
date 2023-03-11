@@ -24,6 +24,7 @@ ext {
     def androidTestEspressoCore = "3.4.0"
     def splashScreenVersion = "1.0.0-beta02"
     def mapVersion = "18.1.0"
+    def swipeRefreshLayout = "1.1.0"
 
     classPaths = [
             gradlePath      : "com.android.tools.build:gradle:$gradleVersion",
@@ -39,7 +40,8 @@ ext {
             lifecycleLiveData : "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleLivedataKtx",
             lifecycleViewModel: "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleViewModelKtx",
             activityKtx       : "androidx.activity:activity-ktx:$activityKtx",
-            splashScreen      : "androidx.core:core-splashscreen:$splashScreenVersion"
+            splashScreen      : "androidx.core:core-splashscreen:$splashScreenVersion",
+            swipeRefreshLayout      : "androidx.swiperefreshlayout:swiperefreshlayout:$swipeRefreshLayout"
     ]
 
     google = [
