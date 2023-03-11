@@ -6,6 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.amg.recipes.R
+import com.amg.recipes.constants.RecipesConstants
 import com.amg.recipes.databinding.FragmentMasterBinding
 import com.amg.recipes.presentation.master.dto.RecipeDTO
 import com.amg.recipes.presentation.master.view.adapter.RecipesAdapter
@@ -68,7 +71,12 @@ class MasterFragment : Fragment() {
 
     private fun showRecipes(recipes: List<RecipeDTO>) {
         val recipesAdapter = RecipesAdapter { recipe ->
-            // TODO navigate to detail
+            findNavController().navigate(
+                R.id.action_masterFragment_to_detailFragment,
+                Bundle().apply {
+                    putParcelable(RecipesConstants.BUNDLE_RECIPES, recipe)
+                }
+            )
         }
         binding.rvBeer.adapter = recipesAdapter
         recipesAdapter.submitList(recipes)

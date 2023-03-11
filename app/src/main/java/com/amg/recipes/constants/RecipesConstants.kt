@@ -6,4 +6,5 @@ object RecipesConstants {
 
     const val API_TIMEOUT = 45L
 
+    const val BUNDLE_RECIPES = "BUNDLE_RECIPES"
 }

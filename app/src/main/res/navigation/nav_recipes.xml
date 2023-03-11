@@ -12,20 +12,21 @@
         tools:layout="@layout/fragment_master">
         <action
             android:id="@+id/action_masterFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            app:destination="@id/detailFragment"
+            app:launchSingleTop="true" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.amg.recipes.DetailFragment"
+        android:name="com.amg.recipes.presentation.detail.view.DetailFragment"
         android:label="DetailFragment"
-        tools:layout="@layout/fragment_detail" >
+        tools:layout="@layout/fragment_detail">
         <action
             android:id="@+id/action_detailFragment_to_mapFragment"
             app:destination="@id/mapFragment" />
     </fragment>
     <fragment
         android:id="@+id/mapFragment"
-        android:name="com.amg.recipes.MapFragment"
+        android:name="com.amg.recipes.presentation.map.view.MapFragment"
         android:label="MapFragment"
         tools:layout="@layout/fragment_map" />
 </navigation>

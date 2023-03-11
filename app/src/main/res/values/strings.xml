@@ -3,4 +3,5 @@
     <string name="label_loading_beer_catalog">Cargando catalogo de cervezas</string>
     <string name="label_food_pairing">Food Pairing</string>
     <string name="label_see_location">Ver ubicación</string>
+    <string name="label_tag_line">%s (%s)</string>
 </resources>
