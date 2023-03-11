@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/masterFragment"
-        android:name="com.amg.recipes.MasterFragment"
+        android:name="com.amg.recipes.presentation.master.view.MasterFragment"
         android:label="MasterFragment"
         tools:layout="@layout/fragment_master">
         <action
