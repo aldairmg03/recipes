@@ -17,4 +17,8 @@ data class Recipe(
     val imageUrl: String,
     @SerializedName("food_pairing")
     val foodPairing: List<String>,
+    @SerializedName("latitude")
+    val latitude: Double,
+    @SerializedName("longitude")
+    val longitude: Double
 )

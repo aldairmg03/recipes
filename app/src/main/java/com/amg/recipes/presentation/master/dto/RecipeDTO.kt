@@ -11,5 +11,7 @@ data class RecipeDTO(
     val description: String,
     val firstBrewed: String,
     val imageUrl: String,
-    val foodPairing: List<String>
+    val foodPairing: List<String>,
+    val latitude: Double,
+    val longitude: Double,
 ) : Parcelable

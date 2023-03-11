@@ -24,4 +24,10 @@
         <item name="android:textColor">@android:color/transparent</item>
     </style>
 
+    <style name="DialogTheme" parent="Theme.Recipes">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
 </resources>

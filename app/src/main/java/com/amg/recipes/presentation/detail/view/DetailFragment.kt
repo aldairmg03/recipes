@@ -12,14 +12,17 @@ import com.amg.recipes.constants.RecipesConstants
 import com.amg.recipes.databinding.FragmentDetailBinding
 import com.amg.recipes.extensions.parcelable
 import com.amg.recipes.presentation.detail.view.adapter.FoodPairingAdapter
+import com.amg.recipes.presentation.map.view.MapDialogFragment
 import com.amg.recipes.presentation.master.dto.RecipeDTO
 import com.amg.recipes.utils.autoCleared
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.google.android.gms.maps.model.LatLng
 
 class DetailFragment : Fragment() {
 
     private var binding by autoCleared<FragmentDetailBinding>()
+    private lateinit var recipe: RecipeDTO
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,6 +39,7 @@ class DetailFragment : Fragment() {
         setupToolbar()
         val recipe: RecipeDTO? = arguments?.parcelable(RecipesConstants.BUNDLE_RECIPES)
         recipe?.let {
+            this@DetailFragment.recipe = it
             setBeerDetail(it)
         } ?: findNavController()
     }
@@ -43,6 +47,7 @@ class DetailFragment : Fragment() {
     private fun initListeners() {
         binding.contentDetail.tvSeeMap.setOnClickListener {
             // TODO show map
+            showMap()
         }
     }
 
@@ -74,6 +79,16 @@ class DetailFragment : Fragment() {
     private fun setupRecyclerView(foodPairing: List<String>) {
         val adapter = FoodPairingAdapter(foodPairing)
         binding.contentDetail.rvFoodPairing.adapter = adapter
+    }
+
+    private fun showMap() {
+        MapDialogFragment(
+            recipe.name,
+            LatLng(recipe.latitude, recipe.longitude)
+        ).show(
+            childFragmentManager,
+            MapDialogFragment.TAG
+        )
     }
 
 

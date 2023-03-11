@@ -42,7 +42,9 @@ class MasterViewModel @Inject constructor(
                             recipe.description,
                             recipe.firstBrewed,
                             recipe.imageUrl,
-                            recipe.foodPairing
+                            recipe.foodPairing,
+                            recipe.latitude,
+                            recipe.longitude
                         )
                     }
                     _recipesCatalogMLD.value = recipes
